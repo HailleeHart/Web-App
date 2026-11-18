@@ -99,16 +99,24 @@ nav{
 
 /* ---------- HERO ---------- */
 .hero-photo-slot{
-  position:absolute;
-  inset:0;
-  background:repeating-linear-gradient(135deg,#141310,#141310 12px,#0d0c0a 12px,#0d0c0a 24px);
-  opacity:.5;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;
-  color:var(--cream-dim);
-  font-size:.85rem;
-  letter-spacing:.03em;
-  pointer-events:none;
+  position: absolute;
+  inset: 0;
+
+  /* Background image */
+  background-image: url("Gold.png");
+  background-size: cover;      /* fills the entire area */
+  background-position: center; /* keeps image centered */
+  background-repeat: no-repeat;
+
+  opacity: .5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--cream-dim);
+  font-size: .85rem;
+  letter-spacing: .03em;
+  pointer-events: none;
 }
 .hero{
   position:relative;
