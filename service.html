@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service — b'zliQué Beauty Bar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#top" class="brand">b'zli<em>Qué</em></a>
+    <div class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#about">Meet Your Tech</a>
+      <a href="index.html#prep">Before Your Appointment</a>
+      <a href="index.html#book">Book</a>
+    </div>
+    <a class="nav-cta" href="index.html#book">Book Now</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+  <div class="dropdown" id="dropdown">
+    <a href="index.html#about">Meet Your Tech</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#prep">Before Your Appointment</a>
+    <a href="index.html#book">Book</a>
+  </div>
+</nav>
+
+<!-- SERVICE DETAIL — populated from the SERVICES object in script.js
+     based on the ?service=<id> value in the URL.                 -->
+<main id="serviceDetail" class="detail-wrap">
+  <a class="back-link" href="index.html#services">← Back to all services</a>
+
+  <div class="detail-photo">[Add a photo of this service — before/after or in-progress shot]</div>
+
+  <div class="detail-category" id="detailCategory">Category</div>
+  <h1 class="detail-name" id="detailName">Service name</h1>
+  <div class="detail-price" id="detailPrice">$__</div>
+  <p class="detail-desc" id="detailDesc">Description loads here.</p>
+
+  <a class="book-tile" id="detailBookBtn" href="index.html#book">
+    <div class="tile-text">
+      <h4>Book this service</h4>
+      <p>Reserve your spot with a $25 deposit</p>
+    </div>
+    <span class="tile-arrow">→</span>
+  </a>
+</main>
+
+<footer>
+  <div class="brand">b'zli<em style="font-style:italic;color:var(--gold);">Qué</em></div>
+  <p>Durham Region Brow & Lash Artist</p>
+  <p>Ajax, Ontario</p>
+  <div class="social">
+    <a href="https://www.instagram.com/bzlique.beautybar/" target="_blank">Instagram @bzlique.beautybar</a>
+    <a href="#">Message Us</a>
+    <a href="index.html#book">Book Now</a>
+  </div>
+  <p class="fine">© 2026 b'zliQué Beauty Bar. More than beauty, it's confidence.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

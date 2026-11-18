@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>b'zliQué Beauty Bar — Brow & Lash Studio, Ajax</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand">b'zli<em>Qué</em></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">Meet Your Tech</a>
+      <a href="#prep">Before Your Appointment</a>
+      <a href="#book">Book</a>
+    </div>
+    <button class="nav-cta" onclick="scrollToBook()">Book Now</button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+  <div class="dropdown" id="dropdown">
+    <a href="#about">Meet Your Tech</a>
+    <a href="#services">Services</a>
+    <a href="#prep">Before Your Appointment</a>
+    <a href="#book">Book</a>
+  </div>
+</nav>
+
+<div id="top"></div>
+
+<!-- HERO -->
+<div class="stack-outer z1">
+  <div class="stack-inner">
+    <div class="hero-photo-slot"></div>
+    <img src="Gold.png" alt="Gold">
+    <div class="hero">
+      <div>
+        <div class="hero-eyebrow">Durham Region Brow & Lash Artist</div>
+        <h1>b'zliQué Beauty Bar
+          <span class="script">Be Sleek. Be Seen. Be You.</span>
+        </h1>
+        <p class="lead">Brow lamination, sculpting, henna and lash extensions in Ajax, Ontario — precise, natural, and made for how you actually want to look every day.</p>
+        <div class="hero-buttons">
+          <a href="#book" class="btn-primary">Book an appointment</a>
+          <a href="#services" class="btn-ghost">View services</a>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <div class="inner">
+          <div class="mark">b'zliQué</div>
+          <div class="sub">BEAUTY BAR</div>
+          <div class="tag">More than beauty, it's confidence</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT / MEET YOUR LASH TECH -->
+<section id="about" class="stack-outer z2">
+<div class="stack-inner">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <div class="kicker">Meet Your Lash & Brow Tech</div>
+      <h3>Hi, I'm Wendi</h3>
+      <span class="role">Founder, b'zliQué Beauty Bar — Ajax, Ontario</span>
+      <p class="placeholder">I created b’zliQUÉ as a space for the everyday woman to slow down, take a little time for
+herself, and enjoy a beauty experience that feels personal, relaxing and intentional.</p>
+      <p class="placeholder">Through brows and lashes, my goal is simple: to enhance the features that are already
+uniquely yours and have you leave my chair feeling beautiful, refreshed and confident.
+Whether you’re coming in for a subtle enhancement or a little extra definition, I want your time
+at b’zliQUÉ to feel like your moment.
+“Be Sleek. Be Seen. Be You.”</p>
+    </div>
+    <div class="about-photo">
+      <img src="headshot.png" alt="Headshot">
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SERVICES ---------------------------------------------------------
+     Each "View & book" link opens service.html?service=<id>, which
+     reads that service's name/price/description from the SERVICES
+     object in script.js and displays it on its own page.          -->
+<section id="services" class="stack-outer z3">
+<div class="stack-inner">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Menu</div>
+      <h2>Services</h2>
+      <p>Every service is fully customized in your consultation.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-col">
+        <h3>Brow Services</h3>
+
+        <div class="service-item">
+          <div class="service-top">
+            <span class="service-name">Brow Lamination + Sculpt + Tint</span>
+            <span class="service-price">$50</span>
+          </div>
+          <p class="placeholder">1hour 30mins</p>
+          <p class="service-desc placeholder">Smooth, lift and set your natural brow hairs into a fuller, more defined shape. Finished with a
+custom tint to enhance colour and definition for a polished and sleek look. Includes brow
+mapping and shaping with wax/razor clean-up.
+Hybrid Tint stains skin up to 7-10 days; hairs are stained up to 4-6 weeks
+<p>Lamination results lasts 4-6 weeks
+
+  * PPD-free tint also available for clients with allergies/sensitive skin</p>
+          <div class="service-actions"><a class="book-link" href="service.html?service=brow-lamination-sculpt-tint">View & book →</a></div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-top">
+            <span class="service-name">Brow Lamination + Sculpt<small style="color:var(--cream-dim);font-style:italic;">(No Tint)</small></span>
+            <span class="service-price">$50</span>
+          </div>
+          <p class="placeholder">1hour 30mins</p>
+          <p class="service-desc placeholder">Smooth, lift and set your natural brow hairs for a fuller look. Includes brow mapping and
+shaping with wax/razor clean-up to refine the brows and create a beautifully defined shape.</p>
+ <p>Lamination results lasts 4-6 weeks</p>
+          <div class="service-actions"><a class="book-link" href="service.html?service=brow-lamination-sculpt">View & book →</a></div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-top">
+            <span class="service-name">Brow Lamination Maintenance</span>
+            <span class="service-price">$35</span>
+          </div>
+          <p>1hour 30mins</p>
+          <p class="service-desc placeholder">This maintenance service is designed to refresh and nourish your brows while maintaining
+their shape and appearance. Includes a conditioning treatment, relaxing hot towel, brow sculpting, and tint if required to
+refresh your colour and definition.</p>
+<p>Recommended 3–6 weeks after your last brow lamination.</p>
+          <div class="service-actions"><a class="book-link" href="service.html?service=brow-lamination-maintenance">View & book →</a></div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-top">
+            <span class="service-name">Henna Brows + Brow Sculpt</span>
+            <span class="service-price">$30</span>
+          </div>
+          <p>1hour 30mins</p>
+          <p class="service-desc placeholder">A complete brow transformation featuring mapping and shaping to create a flattering brow
+design, followed by henna to stain both the brow hairs and skin. Ideal for adding definition and
+creating a fuller, more structured appearance.</p>
+<p>*Henna lasts up to 10-14 days on the skin and up to 6 weeks on the hairs.</p>
+          <div class="service-actions"><a class="book-link" href="service.html?service=brow-henna-sculpt">View & book →</a></div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-top">
+            <span class="service-name">Brow Sculpt + Tint</span>
+            <span class="service-price">$30</span>
+          </div>
+          <p>1hour 30mins</p>
+          <p class="service-desc placeholder">Refresh and define your natural brows with a wax and/or razor clean-up to remove unwanted
+hair and refine the shape, followed by a custom tint to enhance the colour and create a fuller
+appearance.</p>
+<p>Hybrid Tint stains skin up to 7-10 days; hairs are stained up to 4-6 weeks
+*PPD-free tint also available for clients with allergies/sensitive skin</p>
+          <div class="service-actions"><a class="book-link" href="service.html?service=brow-sculpt-tint">View & book →</a></div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-top">
+            <span class="service-name">Brow Sculpt</span>
+            <span class="service-price">$25</span>
+          </div>
+          <p>1hour</p>
+          <p class="service-desc placeholder">This treatment includes detailed brow mapping to create the most flattering shape for your facial
+features, followed by expert shaping and clean-up using wax and/or a precision razor.</p>
+          <div class="service-actions"><a class="book-link" href="service.html?service=brow-sculpt">View & book →</a></div>
+        </div>
+
+        <div class="service-item" style="border-bottom:none;">
+          <div class="service-top">
+            <span class="service-name">Brow Extensions <small style="color:var(--cream-dim);font-style:italic;">(Add-On)</small></span>
+            <span class="service-price">$20</span>
+            <p>30mins</p>
+          </div>
+          <p class="service-desc placeholder">Individual brow fibres are carefully applied to help fill sparse areas and add realistic-looking
+fullness and definition. A great add-on for clients wanting to enhance areas where natural
+brow hair is thin or missing.</p>
+          <div class="service-actions"><a class="book-link" href="service.html?service=brow-extensions">View & book →</a></div>
+        </div>
+      </div>
+
+      <div class="service-col">
+        <h3>Lash Services</h3>
+
+        <div class="service-item">
+          <div class="service-top">
+            <span class="service-name">Natural Clusters</span>
+            <span class="service-price">$25</span>
+          </div>
+          <p>45mins</p>
+          <p class="service-desc placeholder">A soft, lightweight cluster lash set designed to compliment your eye shape using subtle
+lengths and fullness. Perfect for an effortless everyday look that still gives your eyes a
+beautiful lift.</p>
+          <div class="service-actions"><a class="book-link" href="service.html?service=lash-natural-clusters">View & book →</a></div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-top">
+            <span class="service-name">Hybrid Wispy Clusters</span>
+            <span class="service-price">$25</span>
+          </div>
+          <p>45mins</p>
+          <p class="service-desc placeholder">A fuller, more textured cluster lash set combining varying lengths to create a soft, wispy finish.
+Perfect for clients who want more definition and dimension while still keeping the look
+wearable and flattering.</p>
+          <div class="service-actions"><a class="book-link" href="service.html?service=lash-hybrid-wispy">View & book →</a></div>
+        </div>
+        <p>Cluster lash sets are designed for short-term wear. Proper aftercare is essential to
+help protect your natural lashes.</p>
+
+        <div class="service-item" style="border-bottom:none;opacity:0;pointer-events:none;">
+          <div class="service-top"><span class="service-name">&nbsp;</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- BEFORE YOUR APPOINTMENT -->
+<section id="prep" class="stack-outer z4">
+<div class="stack-inner">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Good to Know</div>
+      <h2>Before your appointment</h2>
+      <p>A few things to keep in mind so your service goes smoothly and results last as long as possible.</p>
+    </div>
+    <div class="prep-grid">
+      <div class="prep-card">
+        <span class="num">01</span>
+        <h4>Come with Clean Skin</h4>
+        <p>Arrive with your face free of makeup, oil, and lotion around the brow and eye area.</p>
+      </div>
+      <div class="prep-card">
+        <span class="num">02</span>
+        <h4>Skip the Caffeine</h4>
+        <p>Avoid caffeine before lash appointments to reduce sensitivity and twitching, this will allow for the best outcome.</p>
+      </div>
+      <div class="prep-card">
+        <span class="num">03</span>
+        <h4>No Contacts for Lashes</h4>
+        <p>Remove contact lenses before lash services and bring glasses instead.</p>
+      </div>
+      <div class="prep-card">
+        <span class="num">04</span>
+        <h4>Avoid Retinol / Lash Serums</h4>
+        <p>Avoid exfoliating products, retinol, AHAs/BHAs or other strong skincare actives around the brow area for at least 7-14 days before your appointment.</p>
+      </div>
+       <div class="prep-card">
+        <span class="num">05</span>
+        <h4>Plan for Appointment Length</h4>
+        <p>Appointments typically last between 60-90 minutes depending on the service selected, please plan your day accordingly.</p>
+      </div>
+      <div class="prep-card">
+        <span class="num">06</span>
+        <h4>Service History</h4>
+        <p>Please let me know before your service about any recent brow treatments or products that may affect your service.</p>
+      </div>
+      <div class="prep-card">
+        <span class="num">07</span>
+        <h4>Henna Prep</h4>
+        <p>For tint or henna services, a patch test may be recommended 24–48 hours before your appointment.</p>
+        <p>*Results may vary based on skin type, aftercare and lifestyle.</p>
+      </div>
+      <div class="prep-card">
+        <span class="num">08</span>
+        <h4>Lash Prep</h4>
+        <p>Please arrive with clean lashes and no eye makeup. Avoid mascara, strip-lash glue and oily products around the eyes before your appointment. If you wear contact lenses, you will be required to remove them before your service.</p>
+      </div>
+    </div>
+    <p class="prep-note">Cancellation Policy</p>
+    <p>Life happens — we understand!</p>
+    <p>If you need to cancel or reschedule, please provide at least 24 hours’ notice.</p>
+    <p>Cancellations or rescheduling with less than 24 hours’ notice will result in the $10 deposit being forfeited.</p>
+    <p>A new deposit will be required to secure another appointment.</p>
+    <p>No-shows will also forfeit their deposit.</p>
+  </div>
+</div>
+</section>
+
+<!-- BOOKING / DEPOSIT -->
+<section id="book" class="stack-outer z5">
+<div class="stack-inner">
+  <div class="wrap book-panel">
+    <div class="book-info">
+      <div class="kicker">Reserve Your Spot</div>
+      <h3>Book & secure with a deposit</h3>
+      <p>Select a service and preferred date below. A deposit is required to confirm every appointment and is applied toward your total.</p>
+      <ul>
+        <li>Cancel or reschedule with at least 24 hours’ notice. Late cancellations and no-shows forfeit the deposit.</li>
+        <li>You'll receive an email with deposit instructions right after you submit.</li>
+        <li>Remaining balance is due at the time of your appointment.</li>
+      </ul>
+    </div>
+
+    <form class="booking" id="bookingForm">
+      <label for="service">Service</label>
+      <!-- Options are filled in automatically from the SERVICES list in script.js -->
+      <select id="service" required>
+        <option value="" disabled selected>Select a service</option>
+      </select>
+
+      <div class="row2">
+        <div>
+          <label for="date">Preferred date</label>
+          <input type="date" id="date" required>
+        </div>
+        <div>
+          <label for="time">Preferred time</label>
+          <input type="time" id="time" required>
+        </div>
+      </div>
+
+      <label for="name">Full name</label>
+      <input type="text" id="name" placeholder="Jane Doe" required>
+
+      <div class="row2">
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@email.com" required>
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" placeholder="(___) ___-____" required>
+        </div>
+      </div>
+
+      <label for="notes">Anything I should know? (optional)</label>
+      <textarea id="notes" rows="3" maxlength="500" placeholder="Allergies, sensitivities, recent brow treatments, inspiration…"></textarea>
+
+      <!-- Spam trap: hidden from real visitors, bots tend to fill it -->
+      <input type="text" id="bz_trap" name="bz_trap" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field">
+
+      <div class="deposit-line">
+        <span>Deposit due to confirm</span>
+        <strong>$10.00</strong>
+      </div>
+
+      <div class="form-error" id="formError" role="alert"></div>
+
+      <button type="submit" class="submit-btn">Request appointment</button>
+      <p class="disclaimer">After you submit, you'll be emailed e-Transfer instructions for your $10 deposit. Your spot is confirmed once it's received, and it's applied to your final total.</p>
+
+      <div class="confirm-box" id="confirmBox">
+        <div class="check">✓</div>
+        <h4>Request received</h4>
+        <p id="confirmText"></p>
+      </div>
+    </form>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="brand">b'zli<em style="font-style:italic;color:var(--gold);">Qué</em></div>
+  <p>Durham Region Brow & Lash Artist</p>
+  <p>Ajax, Ontario</p>
+  <div class="social">
+    <a href="https://www.instagram.com/bzlique.beautybar/" target="_blank">Instagram @bzlique.beautybar</a>
+    <a href="#">Message Us</a>
+    <a href="#book">Book Now</a>
+  </div>
+  <p class="fine">© 2026 b'zliQué Beauty Bar. More than beauty, it's confidence.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
