@@ -3,25 +3,41 @@
    Used by: index.html, service.html
    ========================================================= */
 
-/* ---------- GOOGLE SHEETS CONNECTION ----------
-   Paste the Web app URL you get after deploying Code.gs
-   (Apps Script > Deploy > New deployment > Web app).
-   It looks like https://script.google.com/macros/s/AKfy.../exec        */
-const BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbylE-NYgaWMzsaX-JKYeK9m8Qd8Pj__vheKVVc8cdIdPxERotWJvhj-oZqW2RnO39V2/exec";
-const DEPOSIT_AMOUNT = 10; // keep in sync with CONFIG.DEPOSIT_AMOUNT in Code.gs
+/* ---------- FRESHA BOOKING LINK ----------
+   >>> PUT YOUR FRESHA BOOKING LINK HERE (keep the quotes) <<<
+   Every "Book" button on the site goes straight to it, in a new tab.
+   Find it in Fresha: Marketing > Booking link (or Online booking).
+   It looks like https://www.fresha.com/a/your-business-name-ajax-xxxx  */
+const FRESHA_URL = "PASTE_YOUR_FRESHA_LINK_HERE";
+
+/* OPTIONAL: send a specific service straight to its own Fresha page.
+   Use the service id (the key in SERVICES below) and paste that service's
+   Fresha link. Any service not listed here uses FRESHA_URL above.
+   Example:  "brow-sculpt": "https://www.fresha.com/...",              */
+const FRESHA_SERVICE_LINKS = {
+};
+
+/* Until the link above is filled in, Book buttons open Instagram so
+   visitors are never sent to a dead end. */
+const FALLBACK_URL = "https://www.instagram.com/bzlique.beautybar/";
+
+function freshaLink(serviceId) {
+  const own = serviceId && FRESHA_SERVICE_LINKS[serviceId];
+  if (own) return own;
+  return FRESHA_URL.indexOf('PASTE_YOUR') === 0 ? FALLBACK_URL : FRESHA_URL;
+}
 
 /* ---------- SERVICE DATA ----------
    Single source of truth for every service. Edit prices, durations,
-   descriptions and photos here — the booking dropdown and the detail
-   page (service.html) both read from this object.
+   descriptions and photos here — the detail page (service.html) reads
+   from this object.
 
    - The key (e.g. "brow-lamination-sculpt-tint") is the id used in the URL:
      service.html?service=brow-lamination-sculpt-tint
      It must match the link on the matching card in index.html.
    - image: put a file name here (e.g. "brow-lamination.jpg") to show a
      photo on that service's page. Leave it "" to show the placeholder.
-   - If you rename a service ("name"), also rename it in Code.gs
-     (SERVICE_INFO) so the sheet accepts it.                          */
+   - Optional per-service Fresha links go in FRESHA_SERVICE_LINKS above. */
 const SERVICES = {
   "brow-lamination-sculpt-tint": {
     name: "Brow Lamination + Sculpt + Tint",
@@ -137,6 +153,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* ---------- BOOK BUTTONS (every page) ----------
+     Any link with data-fresha opens the Fresha booking page in a new tab. */
+  document.querySelectorAll('[data-fresha]').forEach(function (el) {
+    el.href = freshaLink();
+    el.target = '_blank';
+    el.rel = 'noopener';
+  });
+
   /* ---------- SERVICE DETAIL PAGE (service.html) ---------- */
   const detail = document.getElementById('serviceDetail');
   if (detail) {
@@ -153,9 +177,10 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('detailPrice').textContent =
         data.price + (data.duration ? '  ·  ' + data.duration : '');
       document.getElementById('detailDesc').textContent = data.description;
-      bookBtn.href = 'index.html?service=' + encodeURIComponent(id) + '#book';
-      bookBtn.querySelector('.tile-text p').textContent =
-        'Reserve your spot with a $' + DEPOSIT_AMOUNT + ' deposit';
+      bookBtn.href = freshaLink(id);
+      bookBtn.target = '_blank';
+      bookBtn.rel = 'noopener';
+      bookBtn.querySelector('.tile-text p').textContent = 'Opens our Fresha booking page';
 
       // Show the service photo if one has been set, otherwise keep the placeholder
       if (data.image && photoBox) {
@@ -174,122 +199,10 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('detailDesc').textContent =
         "We couldn't find that service. Head back to the menu and pick one to see its details.";
       bookBtn.href = 'index.html#services';
+      bookBtn.removeAttribute('target');
       bookBtn.querySelector('.tile-text h4').textContent = 'Back to services';
       bookBtn.querySelector('.tile-text p').textContent = '';
       if (photoBox) photoBox.style.display = 'none';
     }
   }
-
-  /* ---------- BOOKING / DEPOSIT FORM (index.html) ---------- */
-  const form = document.getElementById('bookingForm');
-  if (form) {
-    // Build the service dropdown from the SERVICES list above
-    const select = document.getElementById('service');
-    const groups = {};
-    Object.keys(SERVICES).forEach(function (key) {
-      const s = SERVICES[key];
-      if (!groups[s.category]) {
-        const og = document.createElement('optgroup');
-        og.label = s.category;
-        select.appendChild(og);
-        groups[s.category] = og;
-      }
-      const opt = document.createElement('option');
-      opt.value = s.name;
-      opt.textContent = s.name + ' — ' + s.price;
-      groups[s.category].appendChild(opt);
-    });
-
-    // Don't allow picking dates in the past
-    const dateInput = document.getElementById('date');
-    if (dateInput) {
-      const t = new Date();
-      dateInput.min = t.getFullYear() + '-' +
-        String(t.getMonth() + 1).padStart(2, '0') + '-' +
-        String(t.getDate()).padStart(2, '0');
-    }
-
-    // If arriving from a service detail page (index.html?service=id#book),
-    // preselect that service in the dropdown and jump straight to the form.
-    const params = new URLSearchParams(window.location.search);
-    const incoming = params.get('service');
-    if (incoming && SERVICES[incoming]) {
-      select.value = SERVICES[incoming].name;
-      document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const errorBox = document.getElementById('formError');
-      const submitBtn = form.querySelector('button[type=submit]');
-      errorBox.style.display = 'none';
-
-      if (BOOKING_ENDPOINT.indexOf('PASTE_YOUR') === 0) {
-        errorBox.textContent = 'Booking is not connected yet. Paste your Google Apps Script URL into script.js.';
-        errorBox.style.display = 'block';
-        return;
-      }
-
-      // Reads a field safely: a missing field gives '' instead of crashing the form
-      const val = function (id) {
-        const el = document.getElementById(id);
-        return el ? el.value : '';
-      };
-
-      const originalLabel = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
-
-      try {
-        const payload = {
-          service: val('service'),
-          date: val('date'),
-          time: val('time'),
-          name: val('name'),
-          email: val('email'),
-          phone: val('phone'),
-          notes: val('notes'),
-          // Hidden spam trap: a checkbox real visitors never see or tick. Only an
-          // actual tick counts, so browser autofill can't trigger it.
-          trap: (function () {
-            const el = document.getElementById('bz_trap');
-            return !!(el && el.type === 'checkbox' && el.checked);
-          })()
-        };
-
-        // text/plain avoids a CORS preflight, which Apps Script doesn't support
-        const res = await fetch(BOOKING_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(payload)
-        });
-        const result = await res.json();
-
-        if (!result.ok || !result.bookingId) throw new Error(result.error || 'Your booking was not saved. Please try again.');
-
-        const box = document.getElementById('confirmBox');
-        document.getElementById('confirmText').textContent =
-          'Thanks, ' + payload.name + '! Your ' + payload.service + ' request for ' + payload.date +
-          ' at ' + payload.time + ' is saved (ref ' + result.bookingId + '). ' +
-          'Check your email for how to send your $' + DEPOSIT_AMOUNT + ' deposit and confirm your spot.';
-        box.style.display = 'block';
-        form.querySelectorAll('input, select, textarea, button[type=submit], label, .row2, .deposit-line, .disclaimer')
-          .forEach(function (el) { el.style.display = 'none'; });
-        errorBox.style.display = 'none';
-        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } catch (err) {
-        errorBox.textContent = err.message || 'Something went wrong. Please try again.';
-        errorBox.style.display = 'block';
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
-      }
-    });
-  }
 });
-
-/* Jump straight to the booking section for the nav "Book Now" button. */
-function scrollToBook() {
-  const book = document.getElementById('book');
-  if (book) book.scrollIntoView({ behavior: 'smooth' });
-}
