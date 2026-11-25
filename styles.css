@@ -5,6 +5,8 @@
 
 
 :root{
+  --font-main:'Centry Gothic',serif;   /* main font: logo + headings */
+  --font-body:var(--font-body);          /* sub font: all body text */
   --black:#0a0a09;
   --charcoal:#161513;
   --charcoal-2:#1f1e1b;
@@ -21,14 +23,14 @@ body{
   margin:0;
   background:var(--black);
   color:var(--cream);
-  font-family:'Jost',sans-serif;
+  font-family:var(--font-body);
   font-weight:300;
   line-height:1.6;
 }
-h1,h2,h3,.serif{
-  font-family:'Cormorant Garamond',serif;
-  font-weight:500;
-  letter-spacing:.01em;
+h1,h2,h3,h4,.serif{
+  font-family:var(--font-main);
+  font-weight:400;
+  letter-spacing:.04em;
 }
 a{color:inherit;}
 img{max-width:100%;display:block;}
@@ -47,14 +49,14 @@ nav{
   padding:18px 32px;max-width:1120px;margin:0 auto;
 }
 .brand{
-  font-family:'Cormorant Garamond',serif;
+  font-family:var(--font-main);
   font-size:1.5rem;
   letter-spacing:.06em;
   color:var(--cream);
   text-decoration:none;
 }
-.brand em{font-style:italic;color:var(--gold);}
-.nav-links{display:flex;gap:36px;font-size:.92rem;}
+.brand em{font-style:normal;color:var(--gold);}
+.nav-links{display:flex;gap:26px;font-size:.88rem;}
 .nav-links a{text-decoration:none;color:var(--cream-dim);transition:color .2s;}
 .nav-links a:hover{color:var(--gold);}
 .nav-cta{
@@ -66,7 +68,7 @@ nav{
   transition:.25s;
   background:transparent;
   cursor:pointer;
-  font-family:'Jost',sans-serif;
+  font-family:var(--font-body);
 }
 .nav-cta:hover{background:var(--gold);color:var(--black);}
 .menu-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.6rem;cursor:pointer;z-index:60;position:relative;}
@@ -99,109 +101,111 @@ nav{
 
 /* ---------- HERO ---------- */
 .hero-photo-slot{
-  position: absolute;
-  inset: 0;
-
-  /* Background image */
-  background-image: url("Gold.png");
-  background-size: cover;      /* fills the entire area */
-  background-position: center; /* keeps image centered */
-  background-repeat: no-repeat;
-
-  opacity: .5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--cream-dim);
-  font-size: .85rem;
-  letter-spacing: .03em;
-  pointer-events: none;
+  position:absolute;inset:0;
+  background-image:url("Gold.png");
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  opacity:.5;pointer-events:none;
 }
 .hero{
-  position:relative;
-  z-index:1;
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:60px;
-  align-items:center;
-  max-width:1120px;
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  max-width:900px;min-height:100%;
   margin:0 auto;
 }
-.hero-eyebrow{color:var(--gold);font-size:.85rem;letter-spacing:.14em;margin-bottom:18px;}
+.hero-eyebrow{
+  color:var(--gold);
+  font-size:.85rem;letter-spacing:.14em;
+  margin-bottom:18px;
+}
+/* logo + motto (centered) */
 .hero h1{
-  font-size:clamp(2.6rem,5vw,4.2rem);
-  line-height:1.05;
-  margin:0 0 22px;
-  color:var(--cream);
+  font-size:clamp(1.9rem,5vw,3.4rem);
+  line-height:1.15;letter-spacing:.06em;
+  margin:0 0 16px;color:var(--cream);
+  text-wrap:balance;
 }
 .hero .script{
   display:block;
-  font-style:italic;
+  font-family:var(--font-body);
+  font-style:italic;font-weight:300;
+  letter-spacing:.1em;
   color:var(--gold-soft);
-  font-size:.5em;
-  margin-top:10px;
+  font-size:clamp(.95rem,1.8vw,1.2rem);
+  margin-top:14px;
 }
+
+/* ---------- CONTACT BUBBLES (horizontal row under the logo + motto) ---------- */
+.contact-row{
+  display:flex;flex-direction:row;flex-wrap:wrap;
+  justify-content:center;align-items:center;
+  gap:14px;
+  margin:10px 0 34px;
+}
+.contact-pill{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:7px 22px 7px 7px;
+  border-radius:999px;
+  border:1px solid var(--gold);
+  background:linear-gradient(180deg,rgba(31,30,27,.98),rgba(10,10,9,.98));
+  color:var(--cream);text-decoration:none;
+  font-size:.88rem;letter-spacing:.03em;
+  transition:.25s;
+}
+a.contact-pill:hover{
+  border-color:var(--gold-soft);
+  box-shadow:0 0 10px rgba(198,161,91,.2);
+  transform:translateY(-2px);
+}
+.contact-icon{
+  width:38px;height:38px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  background:var(--black);
+  color:var(--gold);
+}
+.contact-icon svg{width:18px;height:18px;}
+
 .hero p.lead{
-  max-width:440px;
+  max-width:520px;
   color:var(--cream-dim);
   font-size:1.05rem;
-  margin-bottom:34px;
+  margin:0 0 34px;
 }
-.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;}
+.hero-buttons{
+  display:flex;gap:16px;flex-wrap:wrap;
+  justify-content:center;align-items:center;
+}
+
+/* ---------- BUTTONS ---------- */
 .btn-primary{
-  background:var(--gold);
-  color:var(--black);
+  background:var(--gold);color:var(--black);
   border:1px solid var(--gold);
   padding:14px 30px;
-  font-size:.92rem;
-  letter-spacing:.03em;
-  cursor:pointer;
-  text-decoration:none;
-  font-family:'Jost',sans-serif;
-  transition:.25s;
-  display:inline-block;
+  font-size:.92rem;letter-spacing:.03em;
+  cursor:pointer;text-decoration:none;
+  font-family:var(--font-body);
+  transition:.25s;display:inline-block;
 }
 .btn-primary:hover{background:transparent;color:var(--gold);}
 .btn-ghost{
-  background:transparent;
-  color:var(--cream);
+  background:transparent;color:var(--cream);
   border:1px solid var(--line);
-  padding:14px 30px;
-  font-size:.92rem;
-  cursor:pointer;
-  text-decoration:none;
-  font-family:'Jost',sans-serif;
-  transition:.25s;
-  display:inline-block;
+  padding:14px 30px;font-size:.92rem;
+  cursor:pointer;text-decoration:none;
+  font-family:var(--font-body);
+  transition:.25s;display:inline-block;
 }
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
 
-
-.hero-badge{
-  position:relative;
-  width:100%;
-  aspect-ratio:1/1;
-  max-width:380px;
-  margin:0 auto;
-  border-radius:50%;
-  border:1px solid var(--gold-deep);
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;
-  background:radial-gradient(circle at 30% 30%,#221f18,var(--black) 70%);
+/* small screens: keep the three bubbles in one row as icon-only circles */
+@media(max-width:700px){
+  .contact-row{flex-wrap:nowrap;gap:12px;}
+  .contact-pill{padding:7px;}
+  .contact-label{display:none;}
 }
-.hero-badge::before{
-  content:"";
-  position:absolute;inset:14px;
-  border-radius:50%;
-  border:1px solid var(--gold);
-  opacity:.55;
-}
-.hero-badge .inner{padding:20px;}
-.hero-badge .mark{font-size:2.6rem;color:var(--gold-soft);font-family:'Cormorant Garamond',serif;font-style:italic;}
-.hero-badge .sub{font-size:.72rem;letter-spacing:.24em;color:var(--cream-dim);margin-top:10px;}
-.hero-badge .tag{font-size:.95rem;font-style:italic;color:var(--gold);margin-top:16px;font-family:'Cormorant Garamond',serif;}
-
 
 /* ---------- SECTION SHELL ---------- */
 section{padding:0;border-top:1px solid var(--line);}
@@ -242,7 +246,7 @@ footer{position:relative;z-index:6;background:var(--black);}
 
 .section-head{max-width:620px;margin-bottom:56px;}
 .kicker{color:var(--gold);font-size:.85rem;letter-spacing:.1em;margin-bottom:14px;}
-.section-head h2{font-size:clamp(2rem,3.4vw,2.8rem);margin:0 0 16px;color:var(--cream);}
+.section-head h2{font-size:clamp(1.6rem,3vw,2.3rem);margin:0 0 16px;color:var(--cream);}
 .section-head p{color:var(--cream-dim);font-size:1.02rem;max-width:560px;}
 
 
@@ -271,7 +275,7 @@ footer{position:relative;z-index:6;background:var(--black);}
   gap:0 64px;
 }
 .service-col h3{
-  font-size:1.5rem;color:var(--gold-soft);
+  font-size:1.25rem;color:var(--gold-soft);
   border-bottom:1px solid var(--line);
   padding-bottom:14px;margin-bottom:6px;
 }
@@ -282,7 +286,7 @@ footer{position:relative;z-index:6;background:var(--black);}
 .service-top{
   display:flex;justify-content:space-between;align-items:baseline;gap:16px;
 }
-.service-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--cream);}
+.service-name{font-family:var(--font-main);font-size:1.02rem;letter-spacing:.04em;line-height:1.35;color:var(--cream);}
 .service-price{color:var(--gold);font-size:1.25rem;white-space:nowrap;}
 .service-duration{
   color:var(--gold-soft);
@@ -315,7 +319,7 @@ footer{position:relative;z-index:6;background:var(--black);}
   cursor:pointer;
   background:none;border:none;
   text-decoration:none;
-  font-family:'Jost',sans-serif;
+  font-family:var(--font-body);
 }
 .book-link:hover{color:var(--gold-soft);border-color:var(--gold-soft);}
 
@@ -336,7 +340,7 @@ footer{position:relative;z-index:6;background:var(--black);}
   color:var(--cream-dim);
   font-size:.85rem;
   text-align:center;
-  padding:20px;
+  padding:50px;
 }
 .about-photo:has(img){padding:0;}
 .about-photo img{
@@ -350,13 +354,13 @@ footer{position:relative;z-index:6;background:var(--black);}
   content:"";position:absolute;inset:10px;border:1px solid var(--gold-deep);opacity:.5;
   z-index:1;pointer-events:none;
 }
-.about-copy h3{font-size:2rem;color:var(--cream);margin:0 0 6px;}
+.about-copy h3{font-size:1.7rem;color:var(--cream);margin:0 0 6px;}
 .about-copy .role{color:var(--gold);font-size:.88rem;letter-spacing:.06em;margin-bottom:22px;display:block;}
 .about-copy p{color:var(--cream-dim);margin-bottom:16px;}
 .about-copy p.placeholder{opacity:.7;font-style:italic;}
 .about-stats{display:flex;gap:40px;margin-top:28px;}
 .about-stats div{border-left:1px solid var(--gold-deep);padding-left:14px;}
-.about-stats strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold-soft);}
+.about-stats strong{display:block;font-family:var(--font-main);font-size:1.6rem;color:var(--gold-soft);}
 .about-stats span{font-size:.8rem;color:var(--cream-dim);}
 
 
@@ -373,14 +377,14 @@ footer{position:relative;z-index:6;background:var(--black);}
   padding:34px 28px;
 }
 .prep-card .num{
-  font-family:'Cormorant Garamond',serif;
+  font-family:var(--font-main);
   font-style:italic;
   color:var(--gold);
   font-size:1.6rem;
   margin-bottom:14px;
   display:block;
 }
-.prep-card h4{margin:0 0 10px;color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:1.3rem;}
+.prep-card h4{margin:0 0 10px;color:var(--cream);font-family:var(--font-main);font-size:1.02rem;line-height:1.35;}
 .prep-card p{color:var(--cream-dim);font-size:.92rem;margin:0;}
 .prep-note{
   margin-top:30px;
@@ -392,7 +396,7 @@ footer{position:relative;z-index:6;background:var(--black);}
 .prep-note p{margin:8px 0 0;}
 .policy-title{
   display:block;
-  font-family:'Cormorant Garamond',serif;
+  font-family:var(--font-main);
   font-size:1.3rem;
   font-weight:500;
   color:var(--gold-soft);
@@ -400,6 +404,31 @@ footer{position:relative;z-index:6;background:var(--black);}
 
 
 
+
+/* ---------- CONSENT FORMS ---------- */
+.consent-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.consent-card{
+  background:var(--black);
+  padding:34px 28px;
+  display:flex;flex-direction:column;align-items:flex-start;
+}
+.consent-card .num{
+  font-family:var(--font-main);color:var(--gold);
+  font-size:1.3rem;margin-bottom:14px;display:block;
+}
+.consent-card h4{margin:0 0 10px;color:var(--cream);font-size:1.02rem;line-height:1.35;}
+.consent-card p{color:var(--cream-dim);font-size:.92rem;margin:0 0 22px;}
+.consent-card .btn-primary{margin-top:auto;padding:11px 24px;font-size:.85rem;}
+.consent-card .btn-primary.is-pending{
+  background:transparent;color:var(--cream-dim);border-color:var(--line);
+  pointer-events:none;cursor:default;
+}
 
 /* ---------- SERVICE DETAIL PAGE (service.html) ---------- */
 .detail-wrap{max-width:820px;margin:0 auto;padding:70px 32px 100px;}
@@ -440,11 +469,11 @@ footer{position:relative;z-index:6;background:var(--black);}
   z-index:1;pointer-events:none;
 }
 .detail-category{color:var(--gold);font-size:.85rem;letter-spacing:.12em;margin-bottom:12px;}
-.detail-name{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:0 0 14px;color:var(--cream);}
+.detail-name{font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 14px;color:var(--cream);}
 .detail-price{
   display:inline-block;
   color:var(--gold);
-  font-family:'Cormorant Garamond',serif;
+  font-family:var(--font-main);
   font-size:1.4rem;
   border-bottom:1px solid var(--gold-deep);
   padding-bottom:4px;
@@ -464,10 +493,10 @@ footer{position:relative;z-index:6;background:var(--black);}
   transition:.25s;
 }
 .book-tile:hover{border-color:var(--gold);background:var(--charcoal);}
-.book-tile .tile-text h4{margin:0 0 6px;font-size:1.3rem;color:var(--cream);}
+.book-tile .tile-text h4{margin:0 0 6px;font-size:1.05rem;color:var(--cream);}
 .book-tile .tile-text p{margin:0;color:var(--cream-dim);font-size:.88rem;}
 .book-tile .tile-arrow{
-  font-family:'Cormorant Garamond',serif;
+  font-family:var(--font-main);
   font-size:1.8rem;
   color:var(--gold);
   flex-shrink:0;
@@ -489,15 +518,14 @@ footer .fine{font-size:.75rem;color:var(--cream-dim);opacity:.5;margin-top:30px;
 
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:860px){
-  .hero{grid-template-columns:1fr;padding-top:60px;}
-  .hero-badge{margin-top:20px;}
   .services-grid{grid-template-columns:1fr;gap:0;}
   .service-col + .service-col{margin-top:40px;}
   .about-grid{grid-template-columns:1fr;}
   .about-photo{margin-top:36px;}
   .work-gallery{grid-template-columns:repeat(2,1fr);}
   .prep-grid{grid-template-columns:1fr;}
+  .consent-grid{grid-template-columns:1fr;}
   .nav-links{display:none;}
   .menu-toggle{display:block;}
   .book-tile{flex-direction:column;align-items:flex-start;text-align:left;}
-}
+} 

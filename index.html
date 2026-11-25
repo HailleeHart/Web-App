@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>b'zliQué Beauty Bar — Brow & Lash Studio, Ajax</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,6 +17,7 @@
       <a href="#services">Services</a>
       <a href="#about">Meet Your Tech</a>
       <a href="#prep">Before Your Appointment</a>
+      <a href="#consent">Consent Forms</a>
       <a data-fresha href="#">Book</a>
     </div>
     <a class="nav-cta" data-fresha href="#">Book Now</a>
@@ -28,6 +29,7 @@
     <a href="#about">Meet Your Tech</a>
     <a href="#services">Services</a>
     <a href="#prep">Before Your Appointment</a>
+    <a href="#consent">Consent Forms</a>
     <a data-fresha href="#">Book</a>
   </div>
 </nav>
@@ -37,27 +39,46 @@
 <!-- HERO -->
 <div class="stack-outer z1">
   <div class="stack-inner">
+
     <div class="hero-photo-slot"></div>
-    <img src="Gold.png" alt="Gold">
+
     <div class="hero">
-      <div>
-        <div class="hero-eyebrow">Durham Region Brow & Lash Artist</div>
-        <h1>b'zliQué Beauty Bar
-          <span class="script">Be Sleek. Be Seen. Be You.</span>
-        </h1>
-        <p class="lead">Brow lamination, sculpting, henna and lash extensions in Ajax, Ontario — precise, natural, and made for how you actually want to look every day.</p>
-        <div class="hero-buttons">
-          <a href="#" class="btn-primary" data-fresha>Book an appointment</a>
-          <a href="#services" class="btn-ghost">View services</a>
-        </div>
+
+      <div class="hero-eyebrow">Durham Region Brow &amp; Lash Artist</div>
+
+      <!-- LOGO + MOTTO (centered) -->
+      <h1>
+        b'zliQué Beauty Bar
+        <span class="script">Be Sleek. Be Seen. Be You.</span>
+      </h1>
+
+      <!-- CONTACT BUBBLES (horizontal) -->
+      <div class="contact-row">
+        <a href="https://www.instagram.com/bzlique.beautybar/" class="contact-pill" target="_blank" rel="noopener" aria-label="Instagram @bzlique.beautybar">
+          <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></span>
+          <span class="contact-label">@bzlique.beautybar</span>
+        </a>
+        <a href="mailto:bslique.beautybar@gmail.com" class="contact-pill" aria-label="Email hello@bzliquebeautybar.com">
+          <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg></span>
+          <span class="contact-label">bslique.beautybar@gmail.com</span>
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Ajax%2C+Ontario" class="contact-pill" target="_blank" rel="noopener" aria-label="Location: Ajax, Ontario">
+          <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.800 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <span class="contact-label">Ajax, Ontario</span>
+        </a>
       </div>
-      <div class="hero-badge">
-        <div class="inner">
-          <div class="mark">b'zliQué</div>
-          <div class="sub">BEAUTY BAR</div>
-          <div class="tag">More than beauty, it's confidence</div>
-        </div>
+
+      <p class="lead">
+        Brow lamination, sculpting, henna and lash extensions in Ajax,
+        Ontario — precise, natural, and made for how you actually want
+        to look every day.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary" data-fresha>Book an Appointment</a>
+        <a href="#services" class="btn-ghost">View Services</a>
       </div>
+
     </div>
   </div>
 </div>
@@ -79,7 +100,7 @@ at b’zliQUÉ to feel like your moment.
 “Be Sleek. Be Seen. Be You.”</p>
     </div>
     <div class="about-photo">
-      <img src="headshot.png" alt="Headshot">
+      <img src="Headshot.png" alt="Headshot">
     </div>
   </div>
 </div>
@@ -186,8 +207,7 @@ features, followed by expert shaping and clean-up using wax and/or a precision r
             <span class="service-name">Brow Extensions <small style="color:var(--cream-dim);font-style:italic;">(Add-On)</small></span>
             <span class="service-price">$20</span>
           </div>
-            <p>30mins</p>
-          </div>
+          <p>30mins</p>
           <p class="service-desc placeholder">Individual brow fibres are carefully applied to help fill sparse areas and add realistic-looking
 fullness and definition. A great add-on for clients wanting to enhance areas where natural
 brow hair is thin or missing.</p>
@@ -295,13 +315,49 @@ help protect your natural lashes.</p>
 </div>
 </section>
 
+<!-- CONSENT FORMS ---------------------------------------------------
+     Each button opens a Google Form. Paste the form links into
+     CONSENT_FORM_LINKS in script.js (keys match data-form below). -->
+<section id="consent" class="stack-outer z5">
+<div class="stack-inner">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Paperwork</div>
+      <h2>Consent Forms</h2>
+      <p>Please complete the form(s) that apply to your service before your appointment. Each one takes just a few minutes.</p>
+    </div>
+    <div class="consent-grid">
+      <div class="consent-card">
+        <span class="num">01</span>
+        <h4>Brow Services Consent</h4>
+        <p>For brow lamination, sculpting, tint, henna and brow extensions.</p>
+        <a class="btn-primary" data-form="brow" href="#" target="_blank" rel="noopener">Open form →</a>
+      </div>
+      <div class="consent-card">
+        <span class="num">02</span>
+        <h4>Lash Services Consent</h4>
+        <p>For natural and hybrid wispy cluster lash sets.</p>
+        <a class="btn-primary" data-form="lash" href="#" target="_blank" rel="noopener">Open form →</a>
+      </div>
+      <div class="consent-card">
+        <span class="num">03</span>
+        <h4>Photo &amp; Media Release</h4>
+        <p>Optional permission to share your before/after photos on our social media.</p>
+        <a class="btn-primary" data-form="photo" href="#" target="_blank" rel="noopener">Open form →</a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
 <footer>
   <div class="brand">b'zli<em style="font-style:italic;color:var(--gold);">Qué</em></div>
   <p>Durham Region Brow & Lash Artist</p>
   <p>Ajax, Ontario</p>
   <div class="social">
     <a href="https://www.instagram.com/bzlique.beautybar/" target="_blank">Instagram @bzlique.beautybar</a>
-    <a href="#">Message Us</a>
+    <a href="#consent">Consent Forms</a>
+    <a href="mailto:hello@bzliquebeautybar.com">Message Us</a>
     <a data-fresha href="#">Book Now</a>
   </div>
   <p class="fine">© 2026 b'zliQué Beauty Bar. More than beauty, it's confidence.</p>

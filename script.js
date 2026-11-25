@@ -44,7 +44,7 @@ const SERVICES = {
     category: "Brow Services",
     price: "$50",
     duration: "1 hr 30 mins",
-    image: "",
+    image: "SnTint.png",
     description:
       "Smooth, lift and set your natural brow hairs into a fuller, more defined shape. Finished with a custom tint to enhance colour and definition for a polished and sleek look. Includes brow mapping and shaping with wax/razor clean-up.\n\n" +
       "Hybrid tint stains skin up to 7–10 days; hairs are stained up to 4–6 weeks.\n" +
@@ -57,7 +57,7 @@ const SERVICES = {
     category: "Brow Services",
     price: "$50",
     duration: "1 hr 30 mins",
-    image: "",
+    image: "lamination.png",
     description:
       "Smooth, lift and set your natural brow hairs for a fuller look. Includes brow mapping and shaping with wax/razor clean-up to refine the brows and create a beautifully defined shape.\n\n" +
       "Lamination results last 4–6 weeks."
@@ -67,7 +67,7 @@ const SERVICES = {
     category: "Brow Services",
     price: "$35",
     duration: "1 hr 30 mins",
-    image: "",
+    image: "Lamination.png",
     description:
       "This maintenance service is designed to refresh and nourish your brows while maintaining their shape and appearance. Includes a conditioning treatment, relaxing hot towel, brow sculpting, and tint if required to refresh your colour and definition.\n\n" +
       "Recommended 3–6 weeks after your last brow lamination."
@@ -77,7 +77,7 @@ const SERVICES = {
     category: "Brow Services",
     price: "$30",
     duration: "1 hr 30 mins",
-    image: "",
+    image: "Henna.png",
     description:
       "A complete brow transformation featuring mapping and shaping to create a flattering brow design, followed by henna to stain both the brow hairs and skin. Ideal for adding definition and creating a fuller, more structured appearance.\n\n" +
       "*Henna lasts up to 10–14 days on the skin and up to 6 weeks on the hairs."
@@ -87,7 +87,7 @@ const SERVICES = {
     category: "Brow Services",
     price: "$30",
     duration: "1 hr 30 mins",
-    image: "",
+    image: "henna.png",
     description:
       "Refresh and define your natural brows with a wax and/or razor clean-up to remove unwanted hair and refine the shape, followed by a custom tint to enhance the colour and create a fuller appearance.\n\n" +
       "Hybrid tint stains skin up to 7–10 days; hairs are stained up to 4–6 weeks.\n" +
@@ -98,7 +98,7 @@ const SERVICES = {
     category: "Brow Services",
     price: "$25",
     duration: "1 hr",
-    image: "",
+    image: "SnTint.png",
     description:
       "This treatment includes detailed brow mapping to create the most flattering shape for your facial features, followed by expert shaping and clean-up using wax and/or a precision razor."
   },
@@ -107,7 +107,7 @@ const SERVICES = {
     category: "Brow Services",
     price: "$20",
     duration: "30 mins",
-    image: "",
+    image: "henna.png",
     description:
       "Individual brow fibres are carefully applied to help fill sparse areas and add realistic-looking fullness and definition. A great add-on for clients wanting to enhance areas where natural brow hair is thin or missing."
   },
@@ -116,7 +116,7 @@ const SERVICES = {
     category: "Lash Services",
     price: "$25",
     duration: "45 mins",
-    image: "",
+    image: "cluster.png",
     description:
       "A soft, lightweight cluster lash set designed to complement your eye shape using subtle lengths and fullness. Perfect for an effortless everyday look that still gives your eyes a beautiful lift.\n\n" +
       "Cluster lash sets are designed for short-term wear. Proper aftercare is essential to help protect your natural lashes."
@@ -126,7 +126,7 @@ const SERVICES = {
     category: "Lash Services",
     price: "$25",
     duration: "45 mins",
-    image: "",
+    image: "clusters.png",
     description:
       "A fuller, more textured cluster lash set combining varying lengths to create a soft, wispy finish. Perfect for clients who want more definition and dimension while still keeping the look wearable and flattering.\n\n" +
       "Cluster lash sets are designed for short-term wear. Proper aftercare is essential to help protect your natural lashes."
